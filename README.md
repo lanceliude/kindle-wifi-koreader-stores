@@ -1,6 +1,8 @@
 # kindle-wifi-koreader-stores
 
-在已越狱 Kindle 上，通过本地 Wi-Fi 无线安装两个 KOReader 插件商店，不需要数据线。
+在已越狱 Kindle 上，通过本地 Wi-Fi 无线安装 KOReader 插件商店，不需要数据线。
+
+适用场景：无数据线 / 充电线也想给 KOReader 安装插件商店、无线安装 KOReader 插件、kTerm 一键安装商店。
 
 本次会同时安装：
 
