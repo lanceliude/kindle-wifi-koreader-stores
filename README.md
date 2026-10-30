@@ -1,42 +1,40 @@
 # kindle-wifi-koreader-stores
 
-Install two KOReader plugin stores on a jailbroken Kindle over local Wi-Fi, without a data cable.
+在已越狱 Kindle 上，通过本地 Wi-Fi 无线安装两个 KOReader 插件商店，不需要数据线。
 
-This installs both:
+本次会同时安装：
 
-- `appstore.koplugin`: international community plugin store.
-- `komarket.koplugin`: Kaou Market / 卡欧市场, Chinese plugin store.
+- `appstore.koplugin`：国际社区插件商店。
+- `komarket.koplugin`：卡欧市场，中文插件商店。
 
-After both stores are installed, use them inside KOReader to install other KOReader plugins.
+两个商店装好以后，其他 KOReader 插件都可以在 KOReader 内部直接搜索安装。
 
-## What this is for
+## 适用场景
 
-Use this when:
+- Kindle 已经越狱。
+- KOReader 已经安装。
+- 没有可用数据线，或者数据线只能充电。
+- 想通过 Wi-Fi 安装 `appstore.koplugin` 和 `komarket.koplugin`。
 
-- Your Kindle is already jailbroken.
-- KOReader is already installed.
-- You do not have a usable USB cable, or the cable only charges.
-- You want to install `appstore.koplugin` and `komarket.koplugin` wirelessly.
+这个仓库只负责引导安装这两个插件商店，不负责越狱 Kindle、不负责安装 KOReader、不负责安装其他插件。
 
-This repo bootstraps only these two plugin stores. It does not jailbreak Kindle, install KOReader, or install plugins other than these stores.
+## 原理
 
-## How it works
+1. 电脑上的 Python 脚本自动下载最新 AppStore 和卡欧市场 release。
+2. 脚本把两个插件打包成一个 Kindle 可解压的压缩包，并在本机启动 Wi-Fi 服务。
+3. Kindle 首页通过 KPM 安装官方终端 kTerm。
+4. 在 kTerm 里执行一条短命令。
+5. 插件自动解压到 `/mnt/us/koreader/plugins/`。
 
-1. A local Python server on your computer downloads the latest AppStore and Kaou Market releases.
-2. It bundles both plugins into one small tarball and serves it on your local Wi-Fi.
-3. On the Kindle, install the official terminal `kTerm` with KPM.
-4. Run one short command in kTerm.
-5. The plugin is extracted into `/mnt/us/koreader/plugins/`.
+## 前置条件
 
-## Requirements
+- Kindle 已越狱。
+- KOReader 已安装。
+- KPM 可用。
+- 电脑已安装 Python 3。
+- Kindle 和电脑连接同一个 Wi-Fi。
 
-- Jailbroken Kindle.
-- KOReader installed.
-- KPM available.
-- Python 3 on your computer.
-- Kindle and computer on the same Wi-Fi.
-
-## Quick start
+## 快速开始
 
 ### macOS / Linux
 
@@ -50,40 +48,43 @@ python3 scripts/start_stores_server.py
 python scripts\start_stores_server.py
 ```
 
-The script prints a command like:
+脚本会打印类似下面的命令：
 
 ```sh
 wget -qO- http://192.168.1.50:8000/g | sh
 ```
 
-## Kindle steps
+## Kindle 操作步骤
 
-1. Go to the Kindle home library.
-2. Open search and enter:
+1. 回到 Kindle 首页图书馆。
+2. 打开搜索框，输入：
 
 ```text
 ;kpm install kterm
 ```
 
-3. Wait for KPM to finish.
-4. Open kTerm.
-5. Run the command printed by the computer script.
-6. Fully exit KOReader and reopen it.
-7. Enable both stores in:
+3. 等 KPM 安装完成。
+4. 打开 kTerm。
+5. 输入电脑脚本打印出来的那条短命令。
+6. 完全退出 KOReader，再重新打开。
+7. 在下面位置启用两个商店：
 
 ```text
-Plugins → Plugin Management
+插件 → 插件管理
 ```
 
-You should see both AppStore and Kaou Market after restarting KOReader.
+启用后一般能看到：
 
-## Notes
+- AppStore
+- 卡欧市场 / Kaou Market
 
-- `-qO-` uses the capital letter `O`, not the digit `0`.
-- If kTerm shows a `>` prompt, press Ctrl+C and retype the shorter command.
-- This is for trusted local Wi-Fi only. Do not expose the server to the public internet.
-- Verified on Kindle Basic 3 / J9G29R. Other jailbroken devices may need device-specific adjustments.
+## 注意事项
 
-## License
+- `-qO-` 中间是大写字母 `O`，不是数字 0。
+- 如果 kTerm 里出现单独的 `>`，按 `Ctrl+C` 退回命令行，再重新输入短命令。
+- 只建议在信任的家庭 Wi-Fi 里使用，不要把服务暴露到公网。
+- 已验证设备：Kindle Basic 3 / J9G29R。其他越狱设备可能需要按设备型号调整。
+
+## 许可证
 
 MIT
