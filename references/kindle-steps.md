@@ -1,82 +1,82 @@
-# Kindle-side proven steps
+# Kindle 端已验证操作步骤
 
-Verified on a jailbroken Kindle Basic 3 / J9G29R with KOReader installed.
+以下步骤已在已越狱、已安装 KOReader 的 Kindle Basic 3 / J9G29R 上验证通过。
 
-## Prerequisites
+## 前置条件
 
-- Kindle is jailbroken.
-- KOReader is installed.
-- KPM is available.
-- Kindle and the user's computer are on the same Wi-Fi network.
-- The computer can reach GitHub to download the AppStore and Kaou Market releases.
+- Kindle 已经越狱。
+- KOReader 已经安装。
+- KPM 可用。
+- Kindle 和用户电脑连接同一个 Wi-Fi。
+- 电脑能够访问 GitHub，以下载 AppStore 和卡欧市场的发布包。
 
-## Start the computer-side server
+## 在电脑上启动本地服务
 
-Run the bundled script. It prints the exact Kindle command.
+运行技能自带脚本，脚本会打印需要在 Kindle 上输入的准确命令。
 
 ```bash
 python3 scripts/start_stores_server.py
 ```
 
-On Windows PowerShell:
+Windows PowerShell 使用：
 
 ```powershell
 python scripts\start_stores_server.py
 ```
 
-If Windows Firewall asks, allow access on private networks.
+如果 Windows 防火墙弹出提示，允许在专用网络下访问。
 
-## Install kTerm on Kindle
+## 在 Kindle 上安装 kTerm
 
-The KOReader built-in terminal may be missing from the menu on some devices. Use the official independent kTerm instead.
+部分设备的 KOReader 菜单里找不到内置终端，因此使用官方独立终端 kTerm。
 
-1. Go to the Kindle home library.
-2. Open the search box.
-3. Type:
+1. 回到 Kindle 首页图书馆。
+2. 打开搜索框。
+3. 输入：
 
 ```text
 ;kpm install kterm
 ```
 
-4. Wait for KPM to finish.
-5. Open kTerm from the Kindle home library.
+4. 等待 KPM 安装完成。
+5. 从 Kindle 首页图书馆打开 kTerm。
 
-## Run the installer in kTerm
+## 在 kTerm 中执行安装命令
 
-Use the exact command printed by the computer-side script. It should look like:
+严格使用电脑脚本打印出来的命令，格式类似：
 
 ```sh
 wget -qO- http://192.168.1.50:8000/g | sh
 ```
 
-If `wget` is missing or fails, use:
+如果 `wget` 不存在或执行失败，再使用：
 
 ```sh
 curl -fsSL http://192.168.1.50:8000/g | sh
 ```
 
-Success looks like:
+安装成功时会看到：
 
 ```text
 OK: AppStore installed to /mnt/us/koreader/plugins/appstore.koplugin
 OK: Kaou Market installed to /mnt/us/koreader/plugins/komarket.koplugin
 ```
 
-## Enable both stores
+## 启用两个商店
 
-1. Fully exit KOReader.
-2. Reopen KOReader.
-3. Go to:
+1. 完全退出 KOReader。
+2. 重新打开 KOReader。
+3. 进入：
 
 ```text
-Menu → Plugins → Plugin Management
+菜单 → 插件 → 插件管理
 ```
 
-4. Enable AppStore and Kaou Market.
-5. After this, install other KOReader plugins from inside either store.
+4. 勾选启用 AppStore 和卡欧市场。
+5. 之后其他 KOReader 插件都可以在这两个商店内部搜索安装。
 
-## Do not retry these failed paths
+## 不要重试这些已验证失败的路线
 
-- `;kpm add-repo http://<computer-ip>:<port>/` flashes back to home on this device.
-- The Kindle built-in browser cannot choose the plugin directory or unzip the plugin.
-- Long Kindle commands with variables and parentheses can trigger a `>` continuation prompt.
+- `;kpm add-repo http://<电脑IP>:<端口>/` 在这台设备上会闪回主页，不要重试。
+- Kindle 原生浏览器不能直接选择插件目录，也不能自动解压插件。
+- 在 Kindle 端输入带变量、括号的长命令，容易触发 `>` 续行提示。

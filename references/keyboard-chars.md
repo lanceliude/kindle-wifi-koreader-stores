@@ -1,46 +1,46 @@
-# kTerm virtual keyboard character guide
+# kTerm 虚拟键盘字符输入说明
 
-Use this reference when guiding a non-technical user through the kTerm on-screen keyboard. Keep the Kindle command as short as possible.
+用于指导电子产品小白在 kTerm 屏幕键盘上输入命令。Kindle 端命令必须保持最短，不要让用户输入额外内容。
 
-## Recommended final command
+## 最终命令格式
 
-Use exactly this shape, replacing IP and port:
+只输入脚本打印出来的命令，格式如下（IP 和端口以脚本实际输出为准）：
 
 ```sh
 wget -qO- http://192.168.1.50:8000/g | sh
 ```
 
-Do not use variables, parentheses, semicolons or fallback chains on the Kindle side. The longer command caused shell continuation prompts during real testing.
+不要在 Kindle 端输入变量、括号、分号或 `|| curl ...` 回退链。真机测试中，更长的命令会触发 shell 续行提示。
 
-## Character by character
+## 逐字符说明
 
-- `wget` = lowercase letters.
-- Space = tap `SPACE`.
-- `-` = top number row.
-- `q` = lowercase.
-- `O` = uppercase letter O: tap Shift, then tap `o`.
-- `-` = top number row.
-- `http://` = lowercase `h t t p`, colon, two slashes.
-- `:` = Shift + `;`.
-- `/` = bottom letter row, directly available.
-- IP address = digits and dots.
-- Port = digits.
-- `/g` = slash + lowercase `g`.
-- `|` = pipe: Shift + `\`.
-- `sh` = lowercase letters.
+- `wget`：全部小写字母。
+- 空格：点按 `SPACE`。
+- `-`：顶部数字行。
+- `q`：小写字母。
+- `O`：大写字母 O：先按 Shift，再按 `o`。
+- `-`：顶部数字行。
+- `http://`：小写 `h t t p`，冒号，两个斜杠。
+- `:`：Shift + `;`。
+- `/`：字母区下方，可直接输入。
+- IP 地址：数字和点号。
+- 端口：数字。
+- `/g`：斜杠 + 小写 `g`。
+- `|`：竖线：Shift + `\`。
+- `sh`：小写字母。
 
-## Common mistakes
+## 常见错误
 
-- `-qO-` uses the capital letter `O`, not the digit `0`.
-- Do not type parentheses.
-- Do not type `$u=...`.
-- Do not add `|| curl ...` to the Kindle command.
-- If a standalone `>` appears on the next line, the shell thinks the command is unfinished. Press Ctrl+C and retype the shorter command.
+- `-qO-` 里是大写字母 `O`，不是数字 `0`。
+- 不要输入括号。
+- 不要输入 `$u=...` 这类变量。
+- 不要给 Kindle 命令追加 `|| curl ...`。
+- 如果下一行出现单独的 `>`，表示 shell 认为命令还没输入完。按 `Ctrl+C` 退回命令行，再重新输入短命令。
 
-## kTerm keyboard layout hints
+## kTerm 键盘位置提示
 
-- Ctrl key is at the bottom-left.
-- Shift is usually the upward-arrow / house-shaped key above `a`.
-- Return/Enter is the arrow icon on the right of the third letter row.
-- Semicolon `;` is on the third letter row after `l`.
-- Backslash `\` is on the second letter row near `p`.
+- Ctrl 键在左下角。
+- Shift 通常是 `a` 键上方的向上箭头或房子形状按键。
+- Return/Enter 是第三排字母右侧的箭头图标。
+- 分号 `;` 在第三排字母中 `l` 的后面。
+- 反斜杠 `\` 在第二排字母靠近 `p` 的位置。
