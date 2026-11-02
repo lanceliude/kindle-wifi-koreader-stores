@@ -1,6 +1,6 @@
 ---
 name: kindle-wifi-koreader-stores
-slug: kindle-wifi-koreader-stores
+slug: lanceliude-kindle-wifi-koreader-stores
 version: 1.0.0
 displayName: Kindle Wi-Fi KOReader 插件商店安装器
 summary: 无数据线，通过本地 Wi-Fi 在已越狱 Kindle 上无线安装 KOReader AppStore 与卡欧市场（komarket）。
