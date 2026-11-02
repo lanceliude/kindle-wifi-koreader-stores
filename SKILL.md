@@ -1,10 +1,10 @@
 ---
 name: kindle-wifi-koreader-stores
 slug: lanceliude-kindle-wifi-koreader-stores
-version: 1.0.0
+version: 1.0.1
 displayName: Kindle Wi-Fi KOReader 插件商店安装器
 summary: 无数据线，通过本地 Wi-Fi 在已越狱 Kindle 上无线安装 KOReader AppStore 与卡欧市场（komarket）。
-description: "Install KOReader plugin stores (AppStore + Kaou Market/komarket.koplugin) on a jailbroken Kindle over local Wi-Fi without a USB cable. Use when the user already has KOReader installed, has no usable data cable, wants to install koplugin stores wirelessly, hit ;kpm add-repo failures, cannot find KOReader built-in terminal, or wants an agent-guided kTerm + local HTTP server workflow."
+description: "面向已越狱、已安装 KOReader 的 Kindle 用户：无需数据线，通过同一局域网 Wi-Fi，由 Agent 启动本地服务并指导用户用 kTerm 一键无线安装 AppStore 与卡欧市场（komarket）两个插件商店。适用于用户没有可用数据线、想无线安装 KOReader 插件商店、;kpm add-repo 失败、找不到 KOReader 内置终端，或需要 Agent 引导完成 kTerm + 本地 HTTP 服务流程的场景。English: install KOReader AppStore and komarket over local Wi-Fi without USB cable using kTerm and a local agent-run HTTP server."
 tags: [kindle, koreader, wifi, kterm, appstore, plugin-store, ebook-reader, jailbroken-kindle, koreader-plugin]
 license: MIT
 homepage: https://github.com/lanceliude/kindle-wifi-koreader-stores
