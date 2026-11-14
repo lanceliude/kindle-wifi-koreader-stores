@@ -2,6 +2,22 @@
 
 Install two KOReader plugin stores on a jailbroken Kindle over local Wi-Fi, without a data cable.
 
+## The one sentence to send your agent
+
+> My Kindle is jailbroken and KOReader is already installed, but I have no working USB cable (charging cable only). Use this skill to install the KOReader plugin stores over the same Wi-Fi, and tell me step by step what to tap and type on the Kindle.
+
+## 30-second check before you start
+
+| Check | How |
+|---|---|
+| Kindle is jailbroken | KUAL or jailbreak icon on the home screen |
+| KOReader opens | Open any book in KOReader |
+| Python 3 on your computer | `python3 --version` (macOS/Linux) or `python --version` (Windows) |
+| Kindle and computer on the same Wi-Fi | Same router, or the same phone hotspot |
+| Computer can reach GitHub | The script downloads both stores from GitHub |
+
+This repo only installs these two stores. It does not jailbreak the Kindle and does not install KOReader.
+
 This installs both:
 
 - `appstore.koplugin`: international community plugin store.
